@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nrubine.github.io/cns-jcweb-com-2/sitemap.xml

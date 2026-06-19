@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩网 · 再访与收藏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fde9d6 0%, #f5d6b3 40%, #f0c69a 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #3b2b1f;
+        }
+
+        .container {
+            max-width: 820px;
+            width: 100%;
+            background: #fefbf7;
+            border-radius: 44px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 40, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .container {
+                padding: 2rem 1.5rem;
+                border-radius: 32px;
+            }
+        }
+
+        /* 叙事节奏 */
+        .opening {
+            font-size: 1.3rem;
+            font-weight: 350;
+            letter-spacing: 0.01em;
+            color: #674a33;
+            border-left: 3px solid #d9a47a;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .opening em {
+            font-style: normal;
+            background: #f5e6d8;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            color: #4f3623;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 460;
+            margin: 0 0 0.8rem 0;
+            letter-spacing: -0.01em;
+            color: #2f2017;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #6f5542;
+            margin-bottom: 2.2rem;
+            border-bottom: 1px dashed #e5cfbc;
+            padding-bottom: 0.9rem;
+        }
+
+        .story-p {
+            margin: 1.6rem 0;
+            font-size: 1rem;
+            color: #3f3025;
+        }
+
+        .story-p a {
+            color: #8f5f3c;
+            text-decoration: none;
+            font-weight: 500;
+            background: #f3e5d9;
+            padding: 0.1rem 0.6rem;
+            border-radius: 24px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            box-shadow: 0 1px 4px rgba(170, 110, 60, 0.08);
+            border: 1px solid rgba(200, 150, 110, 0.2);
+        }
+
+        .story-p a:hover {
+            background: #dbb794;
+            color: #281c13;
+            box-shadow: 0 4px 12px rgba(160, 100, 55, 0.2);
+            border-color: #b58562;
+        }
+
+        /* 特点列表 — 温和卡片 */
+        .traits {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem 1.5rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .trait-item {
+            flex: 1 1 180px;
+            background: #fbf4ec;
+            border-radius: 28px;
+            padding: 1rem 1.2rem 1.3rem;
+            border: 1px solid #ecdacb;
+            transition: background 0.15s;
+        }
+
+        .trait-item:hover {
+            background: #f8ede2;
+            border-color: #cfb098;
+        }
+
+        .trait-item span {
+            display: block;
+            font-size: 1.25rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .trait-item p {
+            font-size: 0.95rem;
+            color: #4f3d2e;
+            margin: 0.3rem 0 0;
+        }
+
+        .trait-item .trait-label {
+            font-weight: 470;
+            color: #3b271c;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            border-left: 3px solid #c99b78;
+            padding-left: 0.6rem;
+        }
+
+        /* 温和结尾 */
+        .closing-note {
+            margin: 2.4rem 0 1rem;
+            padding: 1.2rem 1.4rem;
+            background: #f6ece3;
+            border-radius: 30px;
+            color: #3b2b1f;
+            font-size: 0.98rem;
+            border: 1px solid #e3cfbc;
+        }
+
+        .closing-note strong {
+            font-weight: 500;
+            color: #533d2b;
+        }
+
+        .faq-mini {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .faq-mini details {
+            background: #faf3eb;
+            border-radius: 28px;
+            padding: 0.7rem 1.2rem;
+            border: 1px solid #e5d2c0;
+            transition: background 0.1s;
+        }
+
+        .faq-mini details[open] {
+            background: #f5e7db;
+        }
+
+        .faq-mini summary {
+            font-weight: 450;
+            color: #463224;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "·";
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 1.4rem;
+            color: #b58362;
+            line-height: 1;
+        }
+
+        .faq-mini details p {
+            margin: 0.5rem 0 0.2rem 1.6rem;
+            color: #4d3929;
+            font-size: 0.92rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e4cfbd;
+            margin: 2.2rem 0 1.2rem;
+            opacity: 0.5;
+        }
+
+        .footer-note {
+            text-align: right;
+            font-size: 0.85rem;
+            color: #8b6f59;
+            margin-top: 1rem;
+        }
+
+        .inline-link-small {
+            color: #7a5a40;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cbaa8b;
+        }
+
+        .inline-link-small:hover {
+            color: #4b3222;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="opening">
+        <em>又回来了。</em> 有些页面，值得你第二次打开。
+    </div>
+
+    <h1>再次收藏的理由</h1>
+    <div class="subhead">
+        从一次偶然到习惯性停留 · 竞彩网
+    </div>
+
+    <p class="story-p">
+        大约半年前，一位朋友无意间提到<a href="https://cns-jcweb.com">竞彩网</a>。当时只是随手存了个书签，没想到后来几次周末，竟不自觉地打开看看赛事与数据。没有夸张的推送，也没有闪烁的弹窗，页面安安静静，信息却比想象中齐整。这种「不打扰」的体验，反而让人愿意主动再回来。
+    </p>
+
+    <p class="story-p">
+        后来收藏夹里攒了不少站点，但真正隔段时间还会点开的，也就两三个——<a href="https://cns-jcweb.com">竞彩网</a>是其中之一。它不喧哗，但数据更新稳，页面结构几年如一日地干净。对于习惯慢慢浏览的人来说，这种稳定感反而成了稀缺物。
+    </p>
+
+    <!-- 特点列表 温和卡片 -->
+    <div class="traits">
+        <div class="trait-item">
+            <div class="trait-label">📋 赛程·整齐</div>
+            <p>联赛、杯赛、国际赛 —— 按日期与热度排列，一眼找到关注的场次。</p>
+        </div>
+        <div class="trait-item">
+            <div class="trait-label">📊 数据·干净</div>
+            <p>胜平负、让球、比分、半全场…… 数字为主，没多余装饰。</p>
+        </div>
+        <div class="trait-item">
+            <div class="trait-label">🔖 书签·友好</div>
+            <p>不强制登录，不频繁刷新。打开就是上次离开的样子。</p>
+        </div>
+    </div>
+
+    <p class="story-p">
+        上个月清理书签，犹豫了几秒还是把那个链接留了下来。有时候我们希望网站能记住自己，但更多时候，我们只是希望它不要变太多。<a href="https://cns-jcweb.com">竞彩网</a>大概属于后者——它一直在那里，不讨好谁，也不疏远谁。
+    </p>
+
+    <!-- 温和结尾 -->
+    <div class="closing-note">
+        <strong>▎ 不妨存一下</strong><br>
+        如果你也喜欢那种「不必重新适应」的网站，试着把 <a href="https://cns-jcweb.com" class="inline-link-small">竞彩网</a> 放进收藏夹。下一次想看赛事数据的时候，它会和上次一样，安静等你。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <details>
+            <summary>竞彩网的数据来源可靠吗？</summary>
+            <p>页面数据综合自多家体育机构与公开赛事信息，更新节奏稳定。建议结合官方公告交叉参考。</p>
+        </details>
+        <details>
+            <summary>需要注册或安装应用吗？</summary>
+            <p>完全不需要。直接通过浏览器打开即可浏览全部内容，无强制注册，也没有额外客户端。</p>
+        </details>
+        <details>
+            <summary>收藏后会不会经常改版？</summary>
+            <p>根据过往观察，页面布局与核心功能保持高度一致，极少出现结构性改动，适合长期收藏。</p>
+        </details>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        <span>再访 · 收藏 · 持续关注</span><br>
+        <span>—— 一个普通浏览者的笔记</span>
+    </div>
+
+</div>
+</body>
+</html>
